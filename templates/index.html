@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>魅族官网-魅族智能手机官方网站</title>
+		<link rel="shortcut icon" href="/static/img/favicon_19fbf41.ico" /> 
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/swiper.min.css" />
+		<script src="/static/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+		<script src="/static/js/navChange.js" type="text/javascript"></script>
+		
+	</head>
+
+	<body>
+		<!--wrap begin-->
+		<div class="wrap">
+			<!--banner begin-->
+			<div class="container theme-white">
+				<div id="index-banner" class="index-banner">
+					<!-- Swiper -->
+					<div class="swiper-container">
+						<div class="mz-category">
+							<ul>
+								<li><a href="#">手机</a></li>
+								<li><a href="#">智能设备</a></li>
+								<li><a href="#">智能穿戴</a></li>
+								<li><a href="#">游戏设备</a></li>
+								<li><a href="#">数码影音</a></li>
+								<li><a href="#">手机配件/移动电源</a></li>
+								<li><a href="#">移动存储/办公设备</a></li>
+								<li><a href="#">生活周边</a></li>
+							</ul>
+						</div>
+						<div class="swiper-wrapper">
+							<div class="swiper-slide swiper-no-swiping" style="background:url(/static/img/1001.jpg) center center no-repeat"></div>
+							<div class="swiper-slide swiper-no-swiping" style="background:url(/static/img/1002.jpg) center center no-repeat">
+							</div>
+							<div class="swiper-slide swiper-no-swiping" style="background:url(/static/img/1003.jpg) center center no-repeat">
+							</div>
+							<div class="swiper-slide swiper-no-swiping" style="background:url(/static/img/1004.jpg) center center no-repeat">
+							</div>
+							<div class="swiper-slide swiper-no-swiping" style="background:url(/static/img/1005.jpg) center center no-repeat">
+							</div>
+						</div>
+						<!-- Add Pagination -->
+						<div class="swiper-pagination swiper-pagination-white"></div>
+					</div>
+
+					<!-- Swiper JS -->
+					<script src="/static/js/swiper.min.js"></script>
+
+					<!-- Initialize Swiper -->
+					<script>
+						var swiper = new Swiper('.swiper-container', {
+							pagination: '.swiper-pagination',
+							paginationClickable: '.swiper-pagination',
+							spaceBetween: 30,
+							effect: 'fade',
+							autoplayDisableOnInteraction: false,
+							noSwiping: true,
+							loop: true,
+							autoplay: 4000,
+						});
+					</script>
+				</div>
+
+				<!--header begin-->
+				<div id="header-container">
+					<div class="head-wrap">
+						<div class="head">
+							<div class="logo">
+								<a class="logo-img" href="#"></a>
+							</div>
+							<div class="user">
+								<div class="user-img">
+									<img src="/static/img/log-default.png" />
+									<span class="arrow-bg"></span>
+								</div>
+								<!-- <div class="user-box"></div> -->
+								<!--登录前-->
+								<div class="user-trigger" id="unlogin" style="display: block;">
+									<ul class="user-dropdown">
+										<li>
+											<a class="button button-primary center" href="#">立即登录</a>
+										</li>
+										<li class="signup-help">没有账号?
+											<a href="#">立即注册</a>
+										</li>
+										<li>
+											<a href="#">我的订单</a>
+										</li>
+										<li>
+											<a href="#">M码通道</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<ul class="nav">
+								<li class="nav-item">
+									<a href="javascript:;">魅族商城</a>
+								</li>
+								<li class="nav-item" data-subNav="nav_iphone">
+									<a href="javascript:;">魅族手机</a>
+								</li>
+								<li class="nav-item" data-subNav="nav_subIphone">
+									<a href="javascript:;">魅蓝手机</a>
+								</li>
+								<li class="nav-item" data-subNav="nav_voice">
+									<a href="javascript:;">魅族声学</a>
+								</li>
+								<li class="nav-item" data-subNav="nav_parts">
+									<a href="javascript:;">智能 · 配件</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;">服务</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;">专卖店</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;">Flyme</a>
+								</li>
+								<li class="nav-item">
+									<a href="javascript:;">社区</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="sub-nav">
+						<div class="sub-nav_wrap" data-link="nav_iphone">
+                            {% for phone in get_phone_information %}
+                                {% if phone.brand == 'meizu' %}
+                                    <a href="#">
+                                    <img src="{{ url_for('static',filename='img/'+phone.picture_path) }}" alt="#">
+                                    <span>{{ phone.name }}<br>¥ {{ phone.price }}起</span>
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+						</div>
+						<div class="sub-nav_wrap" data-link="nav_subIphone">
+							{% for phone in get_phone_information %}
+                                {% if phone.brand == 'meilan' %}
+                                    <a href="#">
+                                    <img src="{{ url_for('static',filename='img/'+phone.picture_path) }}" alt="#">
+                                    <span>{{ phone.name }}<br>¥ {{ phone.price }}起</span>
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+						</div>
+						<div class="sub-nav_wrap" data-link="nav_voice">
+							{% for phone in get_parts_information %}
+                                <a href="#">
+                                <img src="{{ url_for('static',filename='img/'+phone.picture_path) }}" alt="#">
+                                <span>{{ phone.name }}<br>¥ {{ phone.price }}起</span>
+                                </a>
+                            {% endfor %}
+						</div>
+						<div class="sub-nav_wrap" data-link="nav_parts">
+							{% for phone in get_periphery_information %}
+                                <a href="#">
+                                <img src="{{ url_for('static',filename='img/'+phone.picture_path) }}" alt="#">
+                                <span>{{ phone.name }}<br>¥ {{ phone.price }}起</span>
+                                </a>
+                            {% endfor %}
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!--header over-->
+		</div>
+		<!--banner over-->
+
+		<!--index-container begin-->
+		
+		<!--index-container over-->
+		<div class="home-mz">
+			<section>
+				
+				<div><a href="#"><img src="/static/img/100012.jpg"></a></div>
+				<div><a href="#"><img src="/static/img/100013.jpg"></a></div>
+				<div><a href="#"><img src="/static/img/100014.jpg"></a></div>
+				<div><a href="#"><img src="/static/img/100015.jpg"></a></div>
+			</section>
+			<div class="home-panel">
+				<h2>
+					<strong>热品推荐</strong>
+				</h2>
+				<section class="home-panel-cotent">
+					<div class="home-panel-baby">
+                        {% for phone in get_phone_information %}
+                            {% if phone.is_hot == 1 %}
+                                <div>
+                                <a href="#">
+                                    <img src="{{ url_for('static',filename='img/'+phone.picture_path) }}">
+                                    <h4>{{ phone.name }}</h4>
+                                    <h6 class="baby-prize"> {{ phone.introduction }}</h6>
+                                    <p> ¥{{ phone.price }}</p>
+                                </a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="home-full-baby">
+			<div class="home-full-ad">
+				<img src="/static/img/homefull.jpg">
+				<a href="#" title="PRO 5" class="hot-point"></a>
+			</div>
+		</div>
+		<div class="home-full-box" style="margin-top: 35px;">
+			<div class="mzcontainer">
+				<h2 style="padding-bottom: 10px">
+					<strong>手机</strong>
+					<span><img src="/static/img/right-arrow.png"></span>
+					<span>更多>></span>
+				</h2>
+				<section>
+                    {% for phone in get_phone_information %}
+                        <div>
+						<a href="#">
+							<img src="{{ url_for('static',filename='img/'+phone.picture_path) }}">
+							<h4>{{ phone.name }}</h4>
+							<h6>{{ phone.introduction }}</h6>
+							<p>¥{{ phone.price }}</p>
+						</a>
+					    </div>
+                    {% endfor %}
+				</section>
+			</div>
+		</div>
+		<div class="home-full-baby"  style="background: #eee">
+			<div class="home-full-ad">
+				<img src="/static/img/babytwo.jpg">
+				<a href="#" title="EP51 耳机" class="hot-point"></a>
+			</div>
+		</div>
+		<div class="home-full-box">
+			<div class="mzcontainer">
+				<h2 style="padding-bottom: 10px">
+					<strong>精选配件</strong>
+					<span><img src="/static/img/right-arrow.png"></span>
+					<span>更多>></span>
+				</h2>
+				<section>
+					{% for phone in get_parts_information %}
+                        <div>
+						<a href="#">
+							<img src="{{ url_for('static',filename='img/'+phone.picture_path) }}">
+							<h4>{{ phone.name }}</h4>
+							<h6>{{ phone.introduction }}</h6>
+							<p>¥{{ phone.price }}</p>
+						</a>
+					    </div>
+                    {% endfor %}
+				</section>
+			</div>
+		</div>
+		<div class="home-full-baby"  style="background: #eee;padding-top: 25px">
+			<div class="home-full-ad">
+				<img src="/static/img/babythree.png">
+				<a href="#" title="纽曼VR眼镜" class="hot-point"></a>
+			</div>
+		</div>
+		<div class="home-full-box">
+			<div class="mzcontainer" style="padding-top: 60px">
+				<h2 style="padding-bottom: 10px">
+					<strong>智能硬件</strong>
+					<span><img src="/static/img/right-arrow.png"></span>
+					<span>更多>></span>
+				</h2>
+
+				<section>
+					{% for phone in get_hardware_information %}
+                        <div>
+						<a href="#">
+							<img src="{{ url_for('static',filename='img/'+phone.picture_path) }}">
+							<h4>{{ phone.name }}</h4>
+							<h6>{{ phone.introduction }}</h6>
+							<p>¥{{ phone.price }}</p>
+						</a>
+					    </div>
+                    {% endfor %}
+                    {% for phone in get_hardware_information %}
+                        <div>
+						<a href="#">
+							<img src="{{ url_for('static',filename='img/'+phone.picture_path) }}">
+							<h4>{{ phone.name }}</h4>
+							<h6>{{ phone.introduction }}</h6>
+							<p>¥{{ phone.price }}</p>
+						</a>
+					    </div>
+                    {% endfor %}
+				</section>
+			</div>
+		</div>
+		<div class="home-full-box" style="height: 900px;">
+			<div class="mzcontainer">
+				<h2 style="padding-bottom: 10px">
+					<strong>手机周边</strong>
+					<span><img src="/static/img/right-arrow.png"></span>
+					<span>更多>></span>
+				</h2>
+
+				<section>
+					{% for phone in get_periphery_information %}
+                        <div>
+						<a href="#">
+							<img src="{{ url_for('static',filename='img/'+phone.picture_path) }}">
+							<h4>{{ phone.name }}</h4>
+							<h6>{{ phone.introduction }}</h6>
+							<p>¥{{ phone.price }}</p>
+						</a>
+					    </div>
+                    {% endfor %}
+                    {% for phone in get_periphery_information %}
+                        <div>
+						<a href="#">
+							<img src="{{ url_for('static',filename='img/'+phone.picture_path) }}">
+							<h4>{{ phone.name }}</h4>
+							<h6>{{ phone.introduction }}</h6>
+							<p>¥{{ phone.price }}</p>
+						</a>
+					    </div>
+                    {% endfor %}
+				</section>
+			</div>
+		</div>
+		<!--footer begin-->
+		<div class="footer">
+			<div class="footer-link">
+				<div class="footer-wrap">
+					<div class="footer-row">
+						<div class="col-3-24">
+							<ul>
+								<li>
+									<p>魅族商城</p>
+								</li>
+								<li>
+									<a href="#" target="_blank">魅蓝5s</a>
+								</li>
+								<li>
+									<a href="#" target="_blank">魅蓝 Note5</a>
+								</li>
+								<li>
+									<a href="#" target="_blank">PRO 6 Plus</a>
+								</li>
+								<li>
+									<a href="#" target="_blank">魅蓝 X</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-3-24">
+							<ul>
+								<li>
+									<p>服务支持</p>
+								</li>
+								<li>
+									<a href="#" target="_blank">寄送快修</a>
+								</li>
+								<li>
+									<a href="#" target="_blank">上门快修</a>
+								</li>
+								<li>
+									<a href="#" target="_blank">预约维修</a>
+								</li>
+								<li>
+									<a href="#" target="_blank">VIP注册</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-3-24">
+							<ul>
+								<li>
+									<p>Flyme</p>
+								</li>
+								<li>
+									<a href="#" target="_blank">系统下载</a>
+								</li>
+								<li>
+									<a href="#" target="_blank">开放平台</a>
+								</li>
+								<li>
+									<a href="#" target="_blank">软件商店</a>
+								</li>
+								<li>
+									<a href="#" target="_blank">查找手机</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-3-24">
+							<ul>
+								<li>
+									<p>关于我们</p>
+								</li>
+								<li>
+									<a href="#" target="_blank">关于魅族</a>
+								</li>
+								<li>
+									<a href="#" target="_blank">加入我们</a>
+								</li>
+								<li>
+									<a href="#" target="_blank">联系我们</a>
+								</li>
+								<li>
+									<a href="#" target="_blank">意见反馈</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-5-24 ii-online">
+							<ul class="call">
+								<li>
+									<p class="hot24">24小时全国服务热线</p>
+								</li>
+								<li>
+									<div class="meizu-footer-phone">400-788-3333</div>
+								</li>
+								<li>
+									<div>
+										<button class="button">
+												<img src="/static/img/icon-phone_d23e91d.png"/>
+												<span>24小时在线客服</span>
+											</button>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<hr class="footer-hr" />
+					<div class="footer-co">
+						<div class="footer-info">
+							<div class="footer-info-left">
+								<a href="http://www.miitbeian.gov.cn/" target="_blank" hidefocus="true">粤ICP备13003602号-2</a>
+								<a href="//www3.res.meizu.com//static/cn/_partial/footer//static/img/icp2_b2dcb54.jpg" target="_blank" hidefocus="true">粤B2-20130198</a>
+								<a href="//www3.res.meizu.com//static/cn/_partial/footer//static/img/com_licence_b00fe42.jpg" target="_blank" hidefocus="true">营业执照</a>
+								<a href="https://www.meizu.com/legal.html" target="_blank" hidefocus="true">法律声明</a>
+								<span class="footer-info-record">
+										<i></i>
+										粤公网安备 44049102496009 号
+									</span>
+								<a class="footer-info-license" href="http://210.76.65.188/" target="_blank"><i></i></a>
+								<a class="footer-info-wel" href="http://210.76.65.188/webrecord/innernet/Welcome.jsp?bano=4404013010531" target="_blank"><i></i></a>
+								<a class="footer-info-trust" href="https://credit.szfw.org/CX20151204012550820380.html" target="_blank"><i></i></a>
+								<span class="ii-hr"></span>
+								<br /> 珠海市魅族通讯设备有限公司 &nbsp;&nbsp; 地址：广东省珠海市唐家湾科技创新海岸魅族科技楼 电话：0756-6130440
+								<br /> © 2017 Meizu Telecom Equipment Co., Ltd. All rights reserved.
+
+							</div>
+							<div id="ii-subscribe">关注我们
+								<a href="#"><i class="ii-subscribe-img ii-subscribe-weibo"></i></a>
+								<span class="ii-hr"></span>
+								<a id="ii-wxa" href="#">
+									<img src="/static/img/code.png" class="ii-wxa-img" />
+									<i class="ii-subscribe-img ii-subscribe-weixin"></i>
+								</a>
+								<span class="ii-hr"></span>
+								<a href="#"><i class="ii-subscribe-img ii-subscribe-qzone"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer end-->
+	</body>
+</html>
