@@ -15,15 +15,15 @@
 ------
 * 进入项目目录后（数据库服务已打开并创建数据库）：
 	* 首先初始化项目环境（项目目录） 
-	···python
+	```python
 	python manage.py db init
-	···
+	```
 	* 然后迁移数据
-	···python
+	```python
 	python manage.py db migrate
-	···
+	```
 	* 最后映射到数据库中
-	···python
+	```python
 	python manage.py db upgrade
-	···
+	```
 
