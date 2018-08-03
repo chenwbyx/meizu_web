@@ -1,6 +1,6 @@
 基于Python/Flask的仿魅族官网网站
 =====
->Design by chenwenbo
+>Design and maintenance by chenwenbo.
 * Python 3.6.5
 * Flask 1.0.2
 * MySQL 5.7.14
@@ -27,3 +27,10 @@
 	python manage.py db upgrade
 	```
 
+
+启动方法
+---
+* 进入项目目录，命令
+	```shell
+	python meizu_web.py
+	```
