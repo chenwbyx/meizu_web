@@ -9,7 +9,8 @@
 	* flask-sqlalchemy
 	* flask_script
 	* flask_migrate
-<br>
+
+
 安装方法
 ------
 * 进入项目目录后（数据库服务已打开并创建数据库）：
