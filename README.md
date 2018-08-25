@@ -9,6 +9,9 @@
 	* flask-sqlalchemy
 	* flask_script
 	* flask_migrate
+	* Jinja2
+	* requests
+	* SQLAlchemy
 
 
 安装方法
